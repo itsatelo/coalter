@@ -177,7 +177,7 @@ client.on("messageCreate", async(message) => {
                        new EmbedBuilder()
                            .setDescription("**7 Days to Die** Dedicated Server\n\n **\\*** Owner : @Connor Cole#0001\n**\\*** IP Address: " + ServerInformation.SevenDaysToDie.IPAddress + "\n**\\*** Port: " + ServerInformation.SevenDaysToDie.Port)
                            .setColor("Red")
-                           .setThumbnail(message.guild.emojis.cache.get(ServerInformation.SevenDaysToDie.emoji).url)
+                           .setThumbnail(message.guild.emojis.cache.get(ServerInformation.SevenDaysToDie.Emoji).url)
                    ]
                });
             }
