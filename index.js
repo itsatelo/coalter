@@ -10,6 +10,16 @@ const {
     ActivityType,
 } = require("discord.js");
 
+const ServerInformation = {
+    SevenDaysToDie: {
+        IPAddress: "51.81.167.154",
+        Port: "25600",
+        
+        Owner: "@Connor Cole#0001",
+        Emoji: "1005219115893543052",
+    }
+}
+
 const intents = [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
@@ -157,6 +167,20 @@ client.on("messageCreate", async(message) => {
 
         if(command === "ping") {
             return message.reply({ content: `${client.ws.ping} ms.` });
+        }
+        
+        if(command === "setupserver") {
+            const server = args[0];
+            if(server === "7d2d") {
+               client.channels.cache.get("1016187892076396605").send({
+                   embeds: [
+                       new EmbedBuilder()
+                           .setDescription("**7 Days to Die** Dedicated Server\n\n **\\*** Owner : @Connor Cole#0001\n**\\*** IP Address: " + ServerInformation.SevenDaysToDie.IPAddress + "\n**\\*** Port: " + ServerInformation.SevenDaysToDie.Port)
+                           .setColor("Red")
+                           .setThumbnail(message.guild.emojis.cache.get(ServerInformation.SevenDaysToDie.emoji).url)
+                   ]
+               });
+            }
         }
     }
 });
